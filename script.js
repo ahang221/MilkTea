@@ -9,7 +9,7 @@ const winnerName = document.getElementById("winnerName");
 
 let spinning = false;
 // 当前滚轮位置
-let currentIndex = 0;
+
 /**
  * 创建滚轮
  */
@@ -53,6 +53,17 @@ function spin() {
     spinning = true;
 
     startButton.disabled = true;
+    // 如果不是第一次，先瞬间回到初始位置
+reel.style.transition = "none";
+reel.style.transform = "translateY(0px)";
+
+// 强制浏览器刷新，否则 transition 不会重新生效
+void reel.offsetHeight;
+    reel.style.transition =
+    `transform ${CONFIG.spinDuration}ms cubic-bezier(.15,.8,.2,1)`;
+
+reel.style.transform =
+    `translateY(${nextOffset}px)`;
 
     const winner = getRandomShop();
 
@@ -66,9 +77,8 @@ function spin() {
 
     const loops = CONFIG.minLoops * totalItems;
 
- const targetIndex =
+const targetIndex =
     loops +
-    currentIndex +
     winnerIndex;
 
     const targetY = targetIndex * itemHeight;
@@ -84,7 +94,7 @@ function spin() {
 
         winnerName.textContent =
             CONFIG.resultPrefix + winner.name;
-currentIndex = winnerIndex;
+
         winnerName.classList.remove("win-pop");
 
         void winnerName.offsetWidth;
