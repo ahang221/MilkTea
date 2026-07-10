@@ -71,8 +71,8 @@ function spin() {
 
     reel.style.transition = `transform ${CONFIG.spinDuration}ms cubic-bezier(.15,.8,.2,1)`;
 
-    reel.style.transform =
-        `translateY(${-targetY + itemHeight * 2}px)`;
+    reel.style.transform =`translateY(${-targetY + itemHeight * 2}px)`;
+    reel.style.transform = `translateY(${CONFIG.itemHeight * 2}px)`;
 
     setTimeout(() => {
 
