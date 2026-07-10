@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -11,6 +12,10 @@
 
     <title>今天喝什么？</title>
 
+    <meta
+        name="theme-color"
+        content="#ffb84d">
+
     <link
         rel="stylesheet"
         href="style.css">
@@ -19,86 +24,92 @@
 
 <body>
 
-<div class="page">
+    <!-- 页面 -->
+    <div class="page">
 
-    <!-- 页面标题 -->
-    <header class="header">
+        <!-- 标题 -->
+        <header class="header">
 
-        <h1>
+            <h1 id="pageTitle">
+                🥤 今天喝什么？
+            </h1>
 
-            🥤 今天喝什么？
+            <p class="subtitle">
+                今天的奶茶，由老虎机决定！
+            </p>
 
-        </h1>
+        </header>
 
-    </header>
+        <!-- 彩带层（以后使用） -->
+        <div id="confetti"></div>
 
-    <!-- 彩带层 -->
-    <div id="confetti-layer"></div>
+        <!-- 老虎机 -->
+        <section class="slot-machine">
 
-    <!-- 老虎机 -->
-    <main class="machine">
+            <!-- 上遮罩 -->
+            <div class="fade fade-top"></div>
 
-        <div class="window">
+            <!-- 下遮罩 -->
+            <div class="fade fade-bottom"></div>
 
-            <!-- 上渐隐 -->
-            <div class="fade top"></div>
+            <!-- 中间中奖框 -->
+            <div class="winner-frame"></div>
 
-            <!-- 中奖框 -->
-            <div class="indicator"></div>
+            <!-- 滚轮 -->
+            <div
+                id="reel"
+                class="reel">
 
-            <!-- 下渐隐 -->
-            <div class="fade bottom"></div>
-
-            <!-- 滚动区域 -->
-            <div id="reel">
+                <!--
+                    所有老虎机内容
+                    都由 script.js 自动生成
+                -->
 
             </div>
 
-        </div>
+        </section>
 
-    </main>
+        <!-- 抽奖结果 -->
+        <section class="result-area">
 
-    <!-- 中奖信息 -->
-    <section class="result">
+            <div class="result-title">
 
-        <span class="label">
+                今天喝
 
-            今天喝
+            </div>
 
-        </span>
+            <div id="winnerName">
 
-        <div id="winner">
+                点击开始抽奖
 
-            点击开始抽奖
+            </div>
 
-        </div>
+        </section>
 
-    </section>
+        <!-- 按钮 -->
+        <section class="button-area">
 
-    <!-- 按钮 -->
-    <footer>
+            <button
+                id="startButton">
 
-        <button
-            id="startBtn">
+                开始抽奖
 
-            开始抽奖
+            </button>
 
-        </button>
+        </section>
 
-    </footer>
+    </div>
 
-</div>
+    <!-- 配置 -->
+    <script src="config.js"></script>
 
-<!-- 数据 -->
+    <!-- 奶茶店数据 -->
+    <script src="shops.js"></script>
 
-<script src="config.js"></script>
-
-<script src="shops.js"></script>
-
-<!-- 主程序 -->
-
-<script src="script.js"></script>
+    <!-- 主程序 -->
+    <script src="script.js"></script>
 
 </body>
 
 </html>
+```
