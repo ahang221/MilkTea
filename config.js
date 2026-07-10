@@ -14,7 +14,7 @@ const CONFIG = {
     spinDuration: 3000,
 
     // 至少滚动多少圈
-    minLoops: 6,
+    minLoops: 9,
 
     // 每一项高度（必须和 CSS 保持一致）
     itemHeight: 64,
