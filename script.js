@@ -52,6 +52,12 @@ function spin() {
     spinning = true;
 
     startButton.disabled = true;
+    // 如果上一轮停在中奖位置，先瞬间回到顶部
+reel.style.transition = "none";
+reel.style.transform = "translateY(0px)";
+
+// 强制浏览器立即应用这个状态
+void reel.offsetHeight;
 
     const winner = getRandomShop();
 
@@ -89,10 +95,6 @@ function spin() {
 
         startButton.textContent =
             CONFIG.againText;
-
-        reel.style.transition = "none";
-
-        reel.style.transform = "translateY(0px)";
 
         spinning = false;
 
