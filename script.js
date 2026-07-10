@@ -9,7 +9,7 @@ const winnerName = document.getElementById("winnerName");
 
 let spinning = false;
 // 当前滚轮位置
-let currentOffset = CONFIG.itemHeight * 2;
+let currentIndex = 0;
 /**
  * 创建滚轮
  */
@@ -66,7 +66,10 @@ function spin() {
 
     const loops = CONFIG.minLoops * totalItems;
 
-    const targetIndex = loops + winnerIndex;
+  const targetIndex =
+    currentIndex +
+    loops +
+    winnerIndex;
 
     const targetY = targetIndex * itemHeight;
     const nextOffset = -targetY + itemHeight * 2;
@@ -81,7 +84,7 @@ function spin() {
 
         winnerName.textContent =
             CONFIG.resultPrefix + winner.name;
-currentOffset = nextOffset;
+currentIndex += loops + winnerIndex;
         winnerName.classList.remove("win-pop");
 
         void winnerName.offsetWidth;
