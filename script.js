@@ -8,7 +8,8 @@ const startButton = document.getElementById("startButton");
 const winnerName = document.getElementById("winnerName");
 
 let spinning = false;
-
+// 当前滚轮位置
+let currentOffset = CONFIG.itemHeight * 2;
 /**
  * 创建滚轮
  */
@@ -36,7 +37,7 @@ function buildReel() {
 }
 
 buildReel();
-
+reel.style.transform = `translateY(${currentOffset}px)`;
 /**
  * 开始抽奖
  */
@@ -68,17 +69,19 @@ function spin() {
     const targetIndex = loops + winnerIndex;
 
     const targetY = targetIndex * itemHeight;
+    const nextOffset = -targetY + itemHeight * 2;
 
     reel.style.transition = `transform ${CONFIG.spinDuration}ms cubic-bezier(.15,.8,.2,1)`;
 
-    reel.style.transform =`translateY(${-targetY + itemHeight * 2}px)`;
+  reel.style.transform =
+    `translateY(${nextOffset}px)`;
    
 
     setTimeout(() => {
 
         winnerName.textContent =
             CONFIG.resultPrefix + winner.name;
-
+currentOffset = nextOffset;
         winnerName.classList.remove("win-pop");
 
         void winnerName.offsetWidth;
@@ -90,9 +93,7 @@ function spin() {
         startButton.textContent =
             CONFIG.againText;
 
-        reel.style.transition = "none";
-
-        reel.style.transform = "translateY(0px)";
+        
 
         spinning = false;
 
