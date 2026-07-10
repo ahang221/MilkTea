@@ -11,10 +11,10 @@ const CONFIG = {
     // =============================
 
     // 老虎机滚动总时长（毫秒）
-    spinDuration: 3000,
+    spinDuration: 4000,
 
     // 至少滚动多少圈
-    minLoops: 9,
+    minLoops: 12,
 
     // 每一项高度（必须和 CSS 保持一致）
     itemHeight: 64,
