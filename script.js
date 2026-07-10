@@ -37,7 +37,7 @@ function buildReel() {
 }
 
 buildReel();
-reel.style.transform = `translateY(${currentOffset}px)`;
+
 /**
  * 开始抽奖
  */
@@ -66,9 +66,9 @@ function spin() {
 
     const loops = CONFIG.minLoops * totalItems;
 
-  const targetIndex =
-    currentIndex +
+ const targetIndex =
     loops +
+    currentIndex +
     winnerIndex;
 
     const targetY = targetIndex * itemHeight;
@@ -84,7 +84,7 @@ function spin() {
 
         winnerName.textContent =
             CONFIG.resultPrefix + winner.name;
-currentIndex += loops + winnerIndex;
+currentIndex = winnerIndex;
         winnerName.classList.remove("win-pop");
 
         void winnerName.offsetWidth;
