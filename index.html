@@ -1,1 +1,104 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>今天喝什么</title><link rel="stylesheet" href="style.css"></head><body><div class="wrap"><h1>🥤 今天喝什么？</h1><div class="slot"><div id="list"></div><div class="marker"></div></div><button id="btn">开始抽奖</button></div><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>今天喝什么？</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- 页面标题 -->
+    <header class="header">
+
+        <h1>
+
+            🥤 今天喝什么？
+
+        </h1>
+
+    </header>
+
+    <!-- 彩带层 -->
+    <div id="confetti-layer"></div>
+
+    <!-- 老虎机 -->
+    <main class="machine">
+
+        <div class="window">
+
+            <!-- 上渐隐 -->
+            <div class="fade top"></div>
+
+            <!-- 中奖框 -->
+            <div class="indicator"></div>
+
+            <!-- 下渐隐 -->
+            <div class="fade bottom"></div>
+
+            <!-- 滚动区域 -->
+            <div id="reel">
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 中奖信息 -->
+    <section class="result">
+
+        <span class="label">
+
+            今天喝
+
+        </span>
+
+        <div id="winner">
+
+            点击开始抽奖
+
+        </div>
+
+    </section>
+
+    <!-- 按钮 -->
+    <footer>
+
+        <button
+            id="startBtn">
+
+            开始抽奖
+
+        </button>
+
+    </footer>
+
+</div>
+
+<!-- 数据 -->
+
+<script src="config.js"></script>
+
+<script src="shops.js"></script>
+
+<!-- 主程序 -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
