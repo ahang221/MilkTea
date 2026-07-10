@@ -1,1 +1,101 @@
-const shops=["蜜雪冰城","霸王茶姬","喜茶","奈雪的茶","茶百道","古茗","沪上阿姨","CoCo都可","一点点","7分甜","益禾堂","书亦烧仙草"];const list=document.getElementById("list");let html="";for(let i=0;i<8;i++)shops.forEach(s=>html+=`<div class=item>${s}</div>`);list.innerHTML=html;const h=36;document.getElementById("btn").onclick=()=>{const b=event.target;b.disabled=true;const win=Math.floor(Math.random()*shops.length);const loops=5*shops.length;const target=(loops+win)*h;list.style.transition="transform 3s cubic-bezier(.15,.8,.2,1)";list.style.transform=`translateY(${-target+72}px)`;setTimeout(()=>{alert("🎉 今天喝："+shops[win]);b.disabled=false;b.textContent="再抽一次";list.style.transition="none";list.style.transform="translateY(0)";},3100)};
+// ================================
+// Milk Tea Roulette V3
+// script.js（基础版）
+// ================================
+
+const reel = document.getElementById("reel");
+const startButton = document.getElementById("startButton");
+const winnerName = document.getElementById("winnerName");
+
+let spinning = false;
+
+/**
+ * 创建滚轮
+ */
+function buildReel() {
+
+    let html = "";
+
+    // 重复多次，让滚动更自然
+    for (let i = 0; i < CONFIG.minLoops + 2; i++) {
+
+        SHOPS.forEach(shop => {
+
+            html += `
+                <div class="slot-item">
+                    ${shop.name}
+                </div>
+            `;
+
+        });
+
+    }
+
+    reel.innerHTML = html;
+
+}
+
+buildReel();
+
+/**
+ * 开始抽奖
+ */
+startButton.addEventListener("click", spin);
+
+/**
+ * 抽奖
+ */
+function spin() {
+
+    if (spinning) return;
+
+    spinning = true;
+
+    startButton.disabled = true;
+
+    const winner = getRandomShop();
+
+    const winnerIndex = SHOPS.findIndex(
+        shop => shop.id === winner.id
+    );
+
+    const itemHeight = CONFIG.itemHeight;
+
+    const totalItems = SHOPS.length;
+
+    const loops = CONFIG.minLoops * totalItems;
+
+    const targetIndex = loops + winnerIndex;
+
+    const targetY = targetIndex * itemHeight;
+
+    reel.style.transition = `transform ${CONFIG.spinDuration}ms cubic-bezier(.15,.8,.2,1)`;
+
+    reel.style.transform =
+        `translateY(${-targetY + itemHeight * 2}px)`;
+
+    setTimeout(() => {
+
+        winnerName.textContent =
+            CONFIG.resultPrefix + winner.name;
+
+        winnerName.classList.remove("win-pop");
+
+        void winnerName.offsetWidth;
+
+        winnerName.classList.add("win-pop");
+
+        startButton.disabled = false;
+
+        startButton.textContent =
+            CONFIG.againText;
+
+        reel.style.transition = "none";
+
+        reel.style.transform = "translateY(0px)";
+
+        spinning = false;
+
+    }, CONFIG.spinDuration + 100);
+
+}
