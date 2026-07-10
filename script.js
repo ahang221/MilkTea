@@ -8,7 +8,6 @@ const startButton = document.getElementById("startButton");
 const winnerName = document.getElementById("winnerName");
 
 let spinning = false;
-// 当前滚轮位置
 
 /**
  * 创建滚轮
@@ -22,11 +21,11 @@ function buildReel() {
 
         SHOPS.forEach(shop => {
 
-           html += `
-<div class="slot-item" data-index="${shop.id}">
-    ${shop.name}
-</div>
-`;
+            html += `
+                <div class="slot-item">
+                    ${shop.name}
+                </div>
+            `;
 
         });
 
@@ -53,17 +52,6 @@ function spin() {
     spinning = true;
 
     startButton.disabled = true;
-    // 如果不是第一次，先瞬间回到初始位置
-reel.style.transition = "none";
-reel.style.transform = "translateY(0px)";
-
-// 强制浏览器刷新，否则 transition 不会重新生效
-void reel.offsetHeight;
-    reel.style.transition =
-    `transform ${CONFIG.spinDuration}ms cubic-bezier(.15,.8,.2,1)`;
-
-reel.style.transform =
-    `translateY(${nextOffset}px)`;
 
     const winner = getRandomShop();
 
@@ -77,18 +65,14 @@ reel.style.transform =
 
     const loops = CONFIG.minLoops * totalItems;
 
-const targetIndex =
-    loops +
-    winnerIndex;
+    const targetIndex = loops + winnerIndex;
 
     const targetY = targetIndex * itemHeight;
-    const nextOffset = -targetY + itemHeight * 2;
 
     reel.style.transition = `transform ${CONFIG.spinDuration}ms cubic-bezier(.15,.8,.2,1)`;
 
-  reel.style.transform =
-    `translateY(${nextOffset}px)`;
-   
+    reel.style.transform =
+        `translateY(${-targetY + itemHeight * 2}px)`;
 
     setTimeout(() => {
 
@@ -106,7 +90,9 @@ const targetIndex =
         startButton.textContent =
             CONFIG.againText;
 
-        
+        reel.style.transition = "none";
+
+        reel.style.transform = "translateY(0px)";
 
         spinning = false;
 
