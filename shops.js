@@ -35,7 +35,7 @@ const SHOPS = [
 
     {
         id: 3,
-        name: "奈雪的茶",
+        name: "茉莉奶白",
         weight: 1
     },
 
@@ -47,7 +47,7 @@ const SHOPS = [
 
     {
         id: 5,
-        name: "古茗",
+        name: "树夏",
         weight: 1
     },
 
@@ -65,34 +65,53 @@ const SHOPS = [
 
     {
         id: 8,
-        name: "CoCo都可",
+        name: "永民手作",
         weight: 1
     },
 
     {
         id: 9,
-        name: "一点点",
+        name: "柚见鲜茶",
         weight: 1
     },
 
     {
         id: 10,
-        name: "益禾堂",
+        name: "鲜榨果汁",
         weight: 1
     },
 
     {
         id: 11,
-        name: "7分甜",
+        name: "李若桃手作酸奶铺",
         weight: 1
     },
 
     {
         id: 12,
-        name: "书亦烧仙草",
+        name: "1点点",
+        weight: 1
+    },
+     {
+        id: 13,
+        name: "爷爷不泡茶",
+        weight: 1
+    },
+     {
+        id: 14,
+        name: "初茶",
+        weight: 1
+    },
+     {
+        id: 15,
+        name: "瑞幸",
+        weight: 1
+    },
+     {
+        id: 16,
+        name: "星巴克",
         weight: 1
     }
-
 ];
 
 /**
