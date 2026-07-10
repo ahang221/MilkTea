@@ -23,7 +23,7 @@ const CONFIG = {
     visibleItems: 5,
 
     // 每秒初始滚动速度（像素）
-    startSpeed: 2200,
+    startSpeed: 1800,
 
     // =============================
     // 动画效果
