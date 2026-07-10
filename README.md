@@ -1,1 +1,1 @@
-# MilkTea
+上传到GitHub：创建仓库->上传这四个文件->Settings->Pages->Deploy from branch->main/root->Save。
