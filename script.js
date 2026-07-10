@@ -36,7 +36,7 @@ function buildReel() {
 }
 
 buildReel();
- reel.style.transform = `translateY(${CONFIG.itemHeight * 2}px)`;
+
 /**
  * 开始抽奖
  */
